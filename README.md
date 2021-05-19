@@ -3,7 +3,7 @@ Little module to transform a time series into a persistence image.
 
 Can be used to convert an arbitrary long time series into a fixed size representation that embed topological information about the signal.
 
-![Alt text](pipeline.png?raw=true "ts2pi")
+![Illustration](pipeline.png?raw=true "ts2pi")
 
 ### Quickstart
 
