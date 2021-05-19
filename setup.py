@@ -9,6 +9,7 @@ setup(
     version='0.1.0',
     description='Python module to transform a time series into a persistence image representation',
     author='Clement Piat',
+    url="https://github.com/clementpiat/time-series-persistence-image",
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=[
