@@ -3,6 +3,8 @@ Little module to transform a time series into a persistence image.
 
 Can be used to convert an arbitrary long time series into a fixed size representation that embed topological information about the signal.
 
+![Alt text](pipeline.png?raw=true "ts2pi")
+
 ### Quickstart
 
 Install with `pip install ts2pi` and use the function this way:
