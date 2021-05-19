@@ -9,42 +9,29 @@ def persistence_diagram(f):
     barcodes = []
     
     n_points = len(f)
-    sorted_f = sorted([(y+1,i) for i,y in enumerate(f)])
-    tmp = np.zeros(n_points)
+    sorted_f = sorted([(y,i) for i,y in enumerate(f)])
+    tmp = [[-1,0,0]]*n_points
     
     for y,i in sorted_f:
-        y1 = tmp[i-1] if i>0 else 0
-        y2 = tmp[i+1] if i<(n_points-1) else 0
+        y1 = tmp[i-1][0] if i>0 else -1
+        y2 = tmp[i+1][0] if i<(n_points-1) else -1
         
-        if y1 and y2:
-            # Then we merge segments
-            if y1 <= y2:
-                # Spread y1 to the right
-                tmp[i] = y1
-                j = i+1
-                while(j<n_points and tmp[j]==y2):
-                    tmp[j] = y1
-                    j+=1
-                barcodes.append((y2-1, y-1))
-            else:
-                # Spread y2 to the left
-                tmp[i] = y2
-                j = i-1
-                while(j>=0 and tmp[j]==y1):
-                    tmp[j] = y2
-                    j-=1
-                barcodes.append((y1-1, y-1))
-                
-        elif y2:
-            tmp[i] = tmp[i+1]
-        elif y1:
-            tmp[i] = tmp[i-1]
+        if y1>=0 and y2>=0:
+            # Then we merge barcodes
+            i2 = tmp[i+1][2]
+            i1 = tmp[i-1][1]
+            barcodes.append((max(y1,y2), y))            
+            tmp[i1] = tmp[i2] = [min(y1,y2),i1,i2]
+        elif y2>=0:
+            i2 = tmp[i+1][2]
+            tmp[i] = tmp[i2] = [y2,i,i2]
+        elif y1>=0:
+            i1 = tmp[i-1][1]
+            tmp[i] = tmp[i1] = [y1,i1,i]
         else:
-            tmp[i] = y
-    
-    assert tmp[0] == tmp[-1]
-    
-    barcodes.append((tmp[0]-1, np.inf))
+            tmp[i] = [y,i,i]
+            
+    # We don't add the last barcode because its upper-bound is the infinity
     return barcodes
 
 
