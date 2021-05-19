@@ -1,7 +1,7 @@
 # Time Series to Persistence Image
 Little module to transform a time series into a persistence image.
 
-Can be used to convert an arbitrary long time series into a fixed size representation that embed topological information about the signal.
+Can be used to convert an arbitrarily long time series into a fixed size representation that embed topological information about the signal.
 
 ![Illustration](https://raw.githubusercontent.com/clementpiat/time-series-persistence-image/main/pipeline.png "ts2pi")
 
