@@ -6,14 +6,14 @@ with open("README.md", "r") as fh:
 setup(
     name='ts2pi',
     packages=find_packages(include=['ts2pi']),
-    version='0.1.2',
+    version='0.1.4',
     description='Python module to transform a time series into a persistence image representation',
     author='Clement Piat',
     url="https://github.com/clementpiat/time-series-persistence-image",
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=[
-        'numpy==1.20.3',
+        'numpy>=1.19',
         'gudhi==3.4.1',
         'sklearn==0.0'
     ]

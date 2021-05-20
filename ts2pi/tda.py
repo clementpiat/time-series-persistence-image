@@ -46,7 +46,7 @@ def persistence_image(x, resolution=[40,40], t=3, bandwidth=0.1):
     pd = persistence_diagram(x)[:-1] # get rid of the last feature because it has an infinite upper bound
 
     if not pd: 
-        # then x is probably a constant time series
+        # then x is probably a monotonic time series
         return np.zeros(resolution)
 
     pi = PersistenceImage(resolution=resolution, bandwidth=bandwidth, weight=lambda x: min(x[1]/t, 1))

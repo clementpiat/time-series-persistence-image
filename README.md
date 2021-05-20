@@ -10,7 +10,7 @@ Can be used to convert an arbitrarily long time series into a fixed size represe
 Install with `pip install ts2pi` and use the function this way:
 ```python
 from ts2pi import persistence_image
-im = persistence_image([1,4.3,3,2,1.5]) # numpy array of shape (40,40)
+im = persistence_image([1,4.3,3,5.1,1.5]) # numpy array of shape (40,40)
 ```
 
 ### Overview
@@ -21,7 +21,7 @@ You might need to change the default values of the function parameters, because 
 from ts2pi import persistence_image
 import matplotlib.pyplot as plt
 
-l = [1,4.3,3,2,1.5]
+l = [1,4.3,3,5.1,1.5]
 im = persistence_image(l, resolution=[40,40], t=3, bandwidth=0.1) # numpy array of shape <resolution>
 plt.imshow(im)
 ```
