@@ -1,5 +1,5 @@
 # Time Series to Persistence Image
-Little module to transform a time series into a persistence image.
+Little module to transform a time series into a persistent image.
 
 Can be used to convert an arbitrarily long time series into a fixed size representation that embed topological information about the signal.
 
